@@ -25,8 +25,8 @@ class RelationshipsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let prodileId = (UIApplication.shared.delegate as! AppDelegate).user?.profileId
-        if let prodileIdValue = prodileId, prodileIdValue > 0 {
+        let profileId = (UIApplication.shared.delegate as! AppDelegate).user?.profileId
+        if let prodileIdValue = profileId, prodileIdValue > 0 {
             labelProfileId.text = String(prodileIdValue)
             userProfileId = String(prodileIdValue)
         }

@@ -17,6 +17,7 @@
 		893B2C4D218F6E56000EFACE /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B2C4C218F6E56000EFACE /* Memo.swift */; };
 		893B2C4F218F6FA8000EFACE /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B2C4E218F6FA8000EFACE /* Relationship.swift */; };
 		893B2C5121908BDE000EFACE /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B2C5021908BDE000EFACE /* MemoViewController.swift */; };
+		895BF354220612BD00A81B37 /* WeekAdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895BF353220612BD00A81B37 /* WeekAdviceViewController.swift */; };
 		8961BB8E21A6243000E72F0E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961BB8D21A6243000E72F0E /* UserPreferences.swift */; };
 		8961BB9021A77B0400E72F0E /* ChooseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961BB8F21A77B0400E72F0E /* ChooseProfileViewController.swift */; };
 		8961BB9221B1ABDF00E72F0E /* TestFourOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961BB9121B1ABDF00E72F0E /* TestFourOptionsViewController.swift */; };
@@ -46,6 +47,7 @@
 		893B2C4C218F6E56000EFACE /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		893B2C4E218F6FA8000EFACE /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 		893B2C5021908BDE000EFACE /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		895BF353220612BD00A81B37 /* WeekAdviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekAdviceViewController.swift; sourceTree = "<group>"; };
 		8961BB8D21A6243000E72F0E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		8961BB8F21A77B0400E72F0E /* ChooseProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProfileViewController.swift; sourceTree = "<group>"; };
 		8961BB9121B1ABDF00E72F0E /* TestFourOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFourOptionsViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				89EB2C9E219DD17900183A3E /* RelationshipsViewController.swift */,
 				8961BB8F21A77B0400E72F0E /* ChooseProfileViewController.swift */,
 				89B2CC2F21B73CA20031F0BA /* EditProfileViewController.swift */,
+				895BF353220612BD00A81B37 /* WeekAdviceViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				8934F6772152FB3F006A432B /* EnneagramViewController.swift in Sources */,
 				8934F6732152FB3F006A432B /* AppDelegate.swift in Sources */,
 				89FB06A021599D79000CAAF3 /* RegistrationViewController.swift in Sources */,
+				895BF354220612BD00A81B37 /* WeekAdviceViewController.swift in Sources */,
 				89F5D6E6215A625100E67B37 /* LoginViewController.swift in Sources */,
 				89D087082179224100193671 /* PersonalityProfileViewController.swift in Sources */,
 				8961BB8E21A6243000E72F0E /* UserPreferences.swift in Sources */,

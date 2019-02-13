@@ -359,7 +359,7 @@
                                                         <rect key="frame" x="50" y="44" width="314" height="30"/>
                                                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mjpramos@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-q9-eeS">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cenasd3r@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-q9-eeS">
                                                         <rect key="frame" x="55" y="44" width="304" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="ri5-9u-KKL"/>
@@ -372,7 +372,7 @@
                                                         <rect key="frame" x="50" y="116" width="314" height="30"/>
                                                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mkecdapl" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRT-KD-qX8">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRT-KD-qX8">
                                                         <rect key="frame" x="55" y="116" width="304" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="EZi-Qj-Fnb"/>

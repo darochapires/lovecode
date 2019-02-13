@@ -83,6 +83,13 @@ class LoginViewController: UIViewController {
                 if let data = response.data {
                     let dataJson = JSON(data)["data"]
                     let json = String(data: data, encoding: String.Encoding.utf8)
+                    if JSON(data)["msg"] == "Login ou Password incorrectos!"
+                    {
+                        let alert = UIAlertController(title: "Erro no Login", message: "Verifique se está conectado à internet ou se a sua password e e-mail estão correctos.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK",  style: UIAlertActionStyle.default, handler: nil))
+                        viewController.present(alert, animated: true)
+                        return
+                    }
                     user = User(userId: dataJson["IdUser"].stringValue, name: dataJson["NomeUser"].stringValue, email: dataJson["EmailUser"].stringValue, profileId: dataJson["IdPerfil"].intValue)
                     print("jsonzzz: \(json)")
                 }
