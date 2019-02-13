@@ -52,13 +52,19 @@ class RelationshipsViewController: UIViewController {
     }
     
     func fetchRelationship(profileId1:String, profileId2:String, completion: @escaping (Relationship?) -> Void) {
-        let url = URL(string: "http://lovecode.eneacoaching.com/api/relacionamento/read.php")
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
+        activityIndicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityIndicator.startAnimating()
         
+        let url = URL(string: "http://lovecode.eneacoaching.com/api/relacionamento/read.php")
         Alamofire.request(url!, method: .post,
                           parameters: ["IdPerfil_1": profileId1, "IdPerfil_2": profileId2],
                           encoding: JSONEncoding.default)
             .validate()
             .responseString { response in
+                activityIndicator.removeFromSuperview()
                 
                 guard response.result.isSuccess,
                     let _ = response.result.value else {

@@ -196,12 +196,12 @@ class TestFourOptionsViewController: UIViewController {
                     (UIApplication.shared.delegate as! AppDelegate).testAnswers.removeLast()
                     return
                 }
-                print(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue)!)
-                if let data = response.data {
-                    let dataJson = JSON(data)["data"]
-                    let json = String(data: data, encoding: String.Encoding.utf8)
-                    print("jsonzzz: \(json)")
-                }
+//                print(NSString(data: (response.request?.httpBody)!, encoding: String.Encoding.utf8.rawValue)!)
+//                if let data = response.data {
+//                    let dataJson = JSON(data)["data"]
+//                    let json = String(data: data, encoding: String.Encoding.utf8)
+//                    print("jsonzzz: \(json)")
+//                }
                 completion()
         }
     }

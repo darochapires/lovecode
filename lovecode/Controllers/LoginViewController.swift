@@ -62,7 +62,6 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         
         let url = URL(string: "http://lovecode.eneacoaching.com/api/registouser/read.php")
-        
         Alamofire.request(url!,
                           method: .post,
                           parameters: ["EmailUser": email, "Password": password],

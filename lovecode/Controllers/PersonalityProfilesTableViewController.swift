@@ -40,7 +40,7 @@ class PersonalityProfilesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profilesList.count
+        return profilesList.count > 9 ? 9 : profilesList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,11 +73,17 @@ class PersonalityProfilesTableViewController: UITableViewController {
     }
     
     func fetchProfiles(completion: @escaping ([PersonalityProfile]?) -> Void) {
-        let url = URL(string: "http://lovecode.eneacoaching.com/api/perfil/read.php")
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.bounds
+        activityIndicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        activityIndicator.startAnimating()
         
+        let url = URL(string: "http://lovecode.eneacoaching.com/api/perfil/read.php")
         Alamofire.request(url!, method: .get)
             .validate()
             .responseJSON { response in
+                activityIndicator.removeFromSuperview()
             
                 guard response.result.isSuccess,
                     let value = response.result.value else {
