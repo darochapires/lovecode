@@ -13,7 +13,6 @@ class TestViewController: UIViewController {
     @IBOutlet weak var ImageView1: UIImageView!
     @IBOutlet weak var ImageView2: UIImageView!
     @IBOutlet weak var ImageView3: UIImageView!    
-    @IBOutlet weak var labelPage: UILabel!
     
     var answer1: Int = 0
     var answer2: Int = 0
@@ -46,8 +45,6 @@ class TestViewController: UIViewController {
         ImageView1.image = UIImage(named: prefix + String(answer1))
         ImageView2.image = UIImage(named: prefix + String(answer2))
         ImageView3.image = UIImage(named: prefix + String(answer3))
-        
-        labelPage.text = String(count + 1)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

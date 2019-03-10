@@ -50,10 +50,10 @@ class PersonalityProfileViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewWillDisappear(false)
         if isMovingFromParentViewController && (UIApplication.shared.delegate as! AppDelegate).testAnswers.count > 0 {
             (UIApplication.shared.delegate as! AppDelegate).testAnswers.removeAll()
-            navigationController?.popToRootViewController(animated: true)
+            navigationController?.popToRootViewController(animated: false)
         }
     }
 

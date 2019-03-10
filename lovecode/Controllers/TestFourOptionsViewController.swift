@@ -20,8 +20,6 @@ class TestFourOptionsViewController: UIViewController {
     @IBOutlet weak var viewDown: UIView!
     @IBOutlet weak var viewContainer: UIView!
     
-    @IBOutlet weak var LabelPage: UILabel!
-    
     override func viewDidLoad() {
         let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 44.0))
         label.backgroundColor = UIColor.clear
