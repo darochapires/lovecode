@@ -25,12 +25,6 @@ class RelationshipsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let profileId = (UIApplication.shared.delegate as! AppDelegate).user?.profileId
-        if let prodileIdValue = profileId, prodileIdValue > 0 {
-            labelProfileId.text = String(prodileIdValue)
-            userProfileId = String(prodileIdValue)
-        }
-        
         var backBtn = UIImage(named: "back")
         backBtn = backBtn?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         self.navigationController!.navigationBar.backIndicatorImage = backBtn;
@@ -38,8 +32,12 @@ class RelationshipsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let profileId = (UIApplication.shared.delegate as! AppDelegate).user?.profileId
+        if let prodileIdValue = profileId, prodileIdValue > 0 {
+            labelProfileId.text = String(prodileIdValue)
+            userProfileId = String(prodileIdValue)
+        }
         labelChooseProfileId.text = chosenProfileId == 0 ? "?" : String(chosenProfileId)
-        
         if chosenProfileId != 0 {
             fetchRelationship(profileId1: userProfileId, profileId2: String(chosenProfileId)) { relationship in
                 self.labelText.text = relationship?.text

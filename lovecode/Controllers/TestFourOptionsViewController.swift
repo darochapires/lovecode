@@ -34,6 +34,14 @@ class TestFourOptionsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let testAnswers = (UIApplication.shared.delegate as! AppDelegate).testAnswers
         
+        if testAnswers.count == 0 {
+            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            view.addSubview(activityIndicator)
+            activityIndicator.frame = view.bounds
+            activityIndicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            activityIndicator.startAnimating()
+        }
+        
         if testAnswers.count >= 18 {
             //this means view came back from PersonalityProfileViewController
             (UIApplication.shared.delegate as! AppDelegate).testAnswers.removeLast()
@@ -82,6 +90,7 @@ class TestFourOptionsViewController: UIViewController {
             }
         }
         else if testAnswers.count == 17 {
+            viewDown.isHidden = true
             imageView1.image = UIImage(named: "n3" + String(testAnswers[16]) + "quadrado")
             imageView2.image = UIImage(named: "n3" + String(obtainAnswerForSingleAnswer(answer: testAnswers[16])) + "quadrado")
             viewContainer.backgroundColor = UIColor.clear
@@ -97,19 +106,54 @@ class TestFourOptionsViewController: UIViewController {
     }
     
     @IBAction func Button1TouchedUpInside(_ sender: Any) {
-        saveAnswer(answer: 3)
+        let testAnswers = (UIApplication.shared.delegate as! AppDelegate).testAnswers
+        if testAnswers.count == 16 {
+            saveAnswer(answer: 3)
+        }
+        else if testAnswers.count == 17 {
+            saveAnswer(answer: 16)
+        }
     }
     
     @IBAction func Button2TouchedUpInside(_ sender: Any) {
-        saveAnswer(answer: 7)
+        let testAnswers = (UIApplication.shared.delegate as! AppDelegate).testAnswers
+        var ans = 0
+        if testAnswers.count == 16 {
+            if(testAnswers[7] != testAnswers[3]) {
+                ans = 7
+            }
+            else if testAnswers[11] != testAnswers[3] && testAnswers[11] != testAnswers[7] {
+                ans = 11
+            }
+            else if testAnswers[15] != testAnswers[3] && testAnswers[15] != testAnswers[7]  && testAnswers[15] != testAnswers[11] {
+                ans = 15
+            }
+            saveAnswer(answer: ans)
+        }
+        else if testAnswers.count == 17 {
+            saveProfile(profileId: obtainAnswerForSingleAnswer(answer: testAnswers[16]));
+        }
     }
     
     @IBAction func Button3TouchedUpInside(_ sender: Any) {
-        saveAnswer(answer: 11)
+        let testAnswers = (UIApplication.shared.delegate as! AppDelegate).testAnswers
+        var ans = 0
+        if testAnswers[11] != testAnswers[3] && testAnswers[11] != testAnswers[7] {
+            ans = 11
+        }
+        else if testAnswers[15] != testAnswers[3] && testAnswers[15] != testAnswers[7]  && testAnswers[15] != testAnswers[11] {
+            ans = 15
+        }
+        saveAnswer(answer: ans)
     }
     
     @IBAction func Button4TouchedUpInside(_ sender: Any) {
-        saveAnswer(answer: 15)
+        let testAnswers = (UIApplication.shared.delegate as! AppDelegate).testAnswers
+        var ans = 0
+        if testAnswers[15] != testAnswers[3] && testAnswers[15] != testAnswers[7]  && testAnswers[15] != testAnswers[11] {
+            ans = 15
+        }
+        saveAnswer(answer: ans)
     }
     
     func obtainAnswerForSingleAnswer(answer: Int) -> Int {
@@ -166,6 +210,20 @@ class TestFourOptionsViewController: UIViewController {
             }
         } else {
             navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func saveProfile(profileId: Int) -> Void {
+        (UIApplication.shared.delegate as! AppDelegate).testAnswers.append(profileId)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "PersonalityProfileViewController")
+        if viewController is PersonalityProfileViewController {
+            setTest(userId: (UIApplication.shared.delegate as! AppDelegate).user!.userId, profileId: profileId, viewController: self) {
+                (UIApplication.shared.delegate as! AppDelegate).testAnswers.append(profileId)
+                (UIApplication.shared.delegate as! AppDelegate).user?.profileId = profileId
+                (viewController as! PersonalityProfileViewController).number = profileId
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
         }
     }
     
