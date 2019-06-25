@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var buttonRegister: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         var backBtn = UIImage(named: "back")
@@ -23,6 +24,18 @@ class LoginViewController: UIViewController {
         self.navigationController!.navigationBar.backIndicatorImage = backBtn;
         self.navigationController!.navigationBar.backIndicatorTransitionMaskImage = backBtn;
         self.navigationController!.navigationBar.backItem?.title = ""
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func buttonLoginTouched(_ sender: Any) {
@@ -95,5 +108,23 @@ class LoginViewController: UIViewController {
                 completion(user)
         }
     }
-
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        textFieldEmail.resignFirstResponder()
+        textFieldPassword.resignFirstResponder()
+    }
 }
